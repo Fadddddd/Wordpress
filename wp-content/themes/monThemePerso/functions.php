@@ -62,6 +62,7 @@ add_theme_support('html5');
 function my_theme_supports()
 {
     add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
 }
 
 /* function my_theme_register_assets() {
