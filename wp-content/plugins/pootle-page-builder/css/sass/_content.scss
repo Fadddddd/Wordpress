@@ -1,0 +1,39 @@
+.ppb-block {
+	box-sizing: content-box;
+	background: center/cover;
+	> * {
+		z-index: 1;
+		position: relative;
+	}
+	&[style*='background-image:']:before {
+		z-index: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: inherit;
+		content: '';
+	}
+}
+
+.ppb-fa-icon a {
+	text-decoration: none;
+	font-weight: normal;
+	box-shadow: none;
+	&[href] {
+		text-decoration: none;
+		font-weight: normal;
+		box-shadow: none;
+	}
+}
+
+.ppb-content-h-center {
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+.ppb-content-v-center {
+	margin-top: auto !important;
+	margin-bottom: auto !important;
+}
