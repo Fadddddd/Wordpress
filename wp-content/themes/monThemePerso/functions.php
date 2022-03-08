@@ -73,14 +73,14 @@ function my_theme_title_separator()
     return '|';
 }
 
-function my_theme_document_title_parts($title)
-{
+/* function my_theme_document_title_parts($title)
+{ */
    /*  var_dump($title);
     die(); */ //effectue un tableau, montre titre efficencia, tagline "le talent a un nom"
     //unset($title['tagline']);
     // $title['demo'] = 'Salut';
-    return $title;
-}
+/*     return $title;
+} */
 
 add_action('after_setup_theme', 'my_theme_supports');
 
@@ -92,4 +92,4 @@ add_theme_support('post-thumbnails');
 }); */
 //si j'ajoute le 10, c'est le param priorité qui n'est pas nécessaire. Si qqch a une priorité supérieure, ce sera appelé après. Si inf, avant
 add_filter('document_title_separator', 'my_theme_title_separator');
-add_filter('document_title_parts', 'my_theme_document_title_parts');
+/* add_filter('document_title_parts', 'my_theme_document_title_parts'); */
