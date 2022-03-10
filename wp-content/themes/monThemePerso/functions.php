@@ -63,6 +63,9 @@ function my_theme_supports()
 {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
+    //add_theme_support('menus'); en commentaire car le register nav menus fait le boulot
+    register_nav_menus('header', 'En tête du menu');
+    register_nav_menus('footer', 'Pied de page');
 }
 
 /* function my_theme_register_assets() {
@@ -76,15 +79,26 @@ function my_theme_title_separator()
 
 /* function my_theme_document_title_parts($title)
 { */
-   /*  var_dump($title);
+/*  var_dump($title);
     die(); */ //effectue un tableau, montre titre efficencia, tagline "le talent a un nom"
-    //unset($title['tagline']);
-    // $title['demo'] = 'Salut';
+//unset($title['tagline']);
+// $title['demo'] = 'Salut';
 /*     return $title;
 } */
 
-add_action('after_setup_theme', 'my_theme_supports');
+function my_theme_menu_class($classes)
+{
+    $classes[] = 'nav-item';
+    return $classes;
+}
 
+function my_theme_menu_link_class($attrs)
+{
+    $attrs['class'] = 'nav-link';
+    return $attrs;
+}
+add_action('after_setup_theme', 'my_theme_supports');
+add_action('wp_enqueue_scripts', 'montheme_register_assets');
 // activation de la fonctionnalité des vignettes
 add_theme_support('post-thumbnails');
 //La fonction sera appelée lorsque l'action wp_head sera utilisée
@@ -94,3 +108,5 @@ add_theme_support('post-thumbnails');
 //si j'ajoute le 10, c'est le param priorité qui n'est pas nécessaire. Si qqch a une priorité supérieure, ce sera appelé après. Si inf, avant
 add_filter('document_title_separator', 'my_theme_title_separator');
 /* add_filter('document_title_parts', 'my_theme_document_title_parts'); */
+add_filter('nav_menu_css_class', 'montheme_menu_class');
+add_filter('nav_menu_link_attributes', 'my_theme_menu_link_class');

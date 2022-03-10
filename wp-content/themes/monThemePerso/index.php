@@ -1,7 +1,7 @@
 <?php
 get_header(); ?>
 
-Bonjour tout le monde : <?php wp_title(); ?>
+Home : <?php wp_title(); ?>
 
 <?php
 // Affichage de la liste des articles avec la boucle
